@@ -12,9 +12,11 @@ mod tests {
         let y = &mut x;
     
         y.push(42);
-
+        
+        // Drop the mutable reference `y` before creating another mutable reference `z`.
         let z = &mut x;
         z.push(13);
+        
         assert_eq!(x, [42, 13]);
     }
 }
